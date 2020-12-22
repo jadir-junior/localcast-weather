@@ -30,7 +30,7 @@ jobs:
         run: npm run lint
 
       - name: Unit testing
-        run: npm run test --code-coverage
+        run: npm run test
 
       - name: E2E
         run: npm run e2e
