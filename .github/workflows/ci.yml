@@ -32,9 +32,6 @@ jobs:
       - name: Unit testing
         run: npm run test
 
-      - name: E2E
-        run: npm run e2e -- --c=ci
-
       - name: Build Prod
         run: npm run build:prod
 
