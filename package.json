@@ -8,6 +8,7 @@
     "build:prod": "ng build --prod",
     "test": "ng test --watch=false --code-coverage --browsers=ChromeHeadlessCustom",
     "test:watch": "ng test",
+    "test:debug": "ng test --source-map",
     "lint": "run-p lint:ts lint:tsc",
     "e2e": "ng e2e",
     "style": "import-sort -l \"**/{src,tests,e2e}/**/*.ts\" && prettier --check \"**/{src,tests,e2e}/**/*.{*css,ts}\"",
@@ -30,15 +31,19 @@
     "docker:taillogs": "echo Web Server Logs: && cross-conf-env docker logs -f $npm_package_config_imageName",
     "docker:open": "sleep 2 && cross-conf-env open-cli http://localhost:$npm_package_config_imagePort",
     "docker:debugmessage": "echo Docker Debug Completed Successfully! Hit Ctrl+C to terminate log tailing.",
-    "docker:debug": "run-s -cs docker:build docker:run docker:open docker:debugmessage docker:taillogs"
+    "docker:debug": "run-s -cs docker:build docker:run docker:open docker:debugmessage docker:taillogs",
+    "prenow:publish": "npm run build:prod",
+    "now:publish": "now --platform-version 2 dist/local-weather-app"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.0.5",
+    "@angular/cdk": "^11.0.3",
     "@angular/common": "~11.0.5",
     "@angular/compiler": "~11.0.5",
     "@angular/core": "~11.0.5",
     "@angular/forms": "~11.0.5",
+    "@angular/material": "^11.0.3",
     "@angular/platform-browser": "~11.0.5",
     "@angular/platform-browser-dynamic": "~11.0.5",
     "@angular/router": "~11.0.5",
